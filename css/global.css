@@ -17,6 +17,11 @@ a:hover {
 
 .tile {
     margin: 20px;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
 }
 
 .btn {
@@ -43,4 +48,11 @@ progress::-webkit-progress-value {
 progress {
     background-color: #1DB954;
     border-radius: 5px;
+}
+
+@media (max-width: 760px) {
+    .tile {
+        width: 80% !important;
+        margin: 20px auto;
+    }
 }

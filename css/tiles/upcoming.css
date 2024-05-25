@@ -1,0 +1,77 @@
+#upcoming {
+    width: 250px;
+}
+
+#upcoming h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+#upcoming-tracks {
+    list-style: none;
+    padding: 0;
+}
+
+.track-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid grey;
+    border-radius: 5px;
+}
+
+.track-item:not(:last-child) {
+    margin-bottom: 5px;
+}
+
+.track-pic {
+    width: 64px;
+    height: 64px;
+    border-radius: 4px;
+    margin-right: 20px;
+}
+
+.track-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.track-name {
+    font-size: 1em;
+    font-weight: bold;
+    text-align: left;
+    text-decoration: none;
+    color: #1DB954;
+}
+
+.artists {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.artist_li {
+    display: inline;
+    margin-right: 5px;
+}
+
+.artist_li a {
+    color: #1DB954;
+    text-decoration: none;
+}
+
+.artist_li a:hover {
+    text-decoration: underline;
+}
+
+.artist_li span {
+    color: #1DB954;
+}
+
+#arrows {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-evenly;
+}

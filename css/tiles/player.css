@@ -1,9 +1,4 @@
 #player {
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    text-align: center;
     width: 250px;
 }
 
@@ -42,8 +37,6 @@
 .artist_li span {
     color: #1DB954;
 }
-
-
 
 .play-btn:not(:last-child) {
     margin-right: 10px;

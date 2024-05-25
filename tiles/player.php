@@ -48,50 +48,54 @@ function updatePlayer() {
             'Authorization': 'Bearer <?php echo $_SESSION['access_token']; ?>'
         },
         success: function(response) {
-            contextUri = response?.context.uri;
-            currentTrackId = response?.item.id;
+            if (response) {
+                contextUri = response?.context.uri;
+                currentTrackId = response?.item.id;
 
-            // Update player interface with track information
-            $('#track-pic').attr('src', response?.item.album.images[0].url);
+                // Update player interface with track information
+                $('#track-pic').attr('src', response?.item.album.images[0].url);
 
-            $('#track-name').text(response?.item.name);
-            $('#track-name').attr('href', response?.item.external_urls.spotify);
+                $('#track-name').text(response?.item.name);
+                $('#track-name').attr('href', response?.item.external_urls.spotify);
 
-            $('.artist_li').remove();
-            $('#artists span').remove();
-            for (let i = 0; i < response?.item.artists.length; i++) {    
-                $('#artists').append('<li class="artist_li"><a href="' + response?.item.artists[i].external_urls.spotify + '" target="_blank" >' + response?.item.artists[i].name + '</a></li>');
-                if (i < response?.item.artists.length - 1) {
-                    $('#artists').append('<span> - </span>');
+                $('#player .artist_li').remove();
+                $('#player #artists span').remove();
+                for (let i = 0; i < response?.item.artists.length; i++) {    
+                    $('#artists').append('<li class="artist_li"><a href="' + response?.item.artists[i].external_urls.spotify + '" target="_blank" >' + response?.item.artists[i].name + '</a></li>');
+                    if (i < response?.item.artists.length - 1) {
+                        $('#artists').append('<span> - </span>');
+                    }
                 }
-            }
 
-            isPlaying = response?.is_playing;
-            if (isPlaying) {
-                $('#play-btn').addClass('hidden');
-                $('#pause-btn').removeClass('hidden');
+                isPlaying = response?.is_playing;
+                if (isPlaying) {
+                    $('#play-btn').addClass('hidden');
+                    $('#pause-btn').removeClass('hidden');
+                } else {
+                    $('#play-btn').removeClass('hidden');
+                    $('#pause-btn').addClass('hidden');
+                }
+
+                // Update time bar, progress, etc.
+                var secondsDuration = parseInt(response?.item.duration_ms/1000);
+                var minutesDuration = parseInt(secondsDuration/60);
+                secondsDuration -= minutesDuration * 60;
+                $('#duration').text(minutesDuration + ':' + String(secondsDuration).padStart(2, '0'));
+
+                var secondsProgress = parseInt(response?.progress_ms/1000);
+                var minutesProgress = parseInt(secondsProgress/60);
+                secondsProgress -= minutesProgress * 60;
+                $('#time').text(minutesProgress + ":" + String(secondsProgress).padStart(2, '0'));
+                $('#time-bar').attr('max', response?.item.duration_ms);
+                $('#time-bar').attr('min', 0);
+                $('#time-bar').attr('value', response?.progress_ms);
+
+                isTrackLiked();
+
+                loadDevice();
             } else {
-                $('#play-btn').removeClass('hidden');
-                $('#pause-btn').addClass('hidden');
+                $('#player').addClass('hidden');
             }
-
-            // Update time bar, progress, etc.
-            var secondsDuration = parseInt(response?.item.duration_ms/1000);
-            var minutesDuration = parseInt(secondsDuration/60);
-            secondsDuration -= minutesDuration * 60;
-            $('#duration').text(minutesDuration + ':' + String(secondsDuration).padStart(2, '0'));
-
-            var secondsProgress = parseInt(response?.progress_ms/1000);
-            var minutesProgress = parseInt(secondsProgress/60);
-            secondsProgress -= minutesProgress * 60;
-            $('#time').text(minutesProgress + ":" + String(secondsProgress).padStart(2, '0'));
-            $('#time-bar').attr('max', response?.item.duration_ms);
-            $('#time-bar').attr('min', 0);
-            $('#time-bar').attr('value', response?.progress_ms);
-
-            isTrackLiked();
-
-            loadDevice();
         },
         error: function(xhr, status, error) {
             console.error('Error fetching current track:', error);

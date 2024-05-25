@@ -15,6 +15,7 @@ if (!isset($_SESSION['access_token'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Spotify Tool</title>
+    <link rel="shortcut icon" href="images/spotify_icon.png" type="image/x-icon">
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/index.css">
 </head>
@@ -23,6 +24,7 @@ if (!isset($_SESSION['access_token'])) {
 <!-- Include player.php -->
 <?php include 'tiles/user.php'; ?>
 <?php include 'tiles/player.php'; ?>
+<?php include 'tiles/upcoming.php'; ?>
 
 </body>
 </html>
