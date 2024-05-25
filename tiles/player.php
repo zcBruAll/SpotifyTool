@@ -20,7 +20,7 @@
     <div id="track-addon">
         <img id="like-btn" class="btn" onclick="toggleLike()" alt="like button">
         <div id="volume">
-            <img id="volume-btn" src="images/volume.png" class="btn" alt="volume">
+            <img id="volume-btn" src="images/volume.png" class="btn" alt="volume" onclick="toggleVolume()">
             <progress id="volume-bar" min="0" max="100"></progress>
         </div>
     </div>
@@ -35,6 +35,8 @@ const longTimeout = 500;
 let deviceId = "";
 let contextUri = "";
 let currentTrackId = "";
+
+let volume = 0;
 
 let isPlaying = false;
 // Function to update player information
@@ -128,7 +130,9 @@ function loadDevice() {
                         if (element.supports_volume) {
                             $('#volume').removeClass('hidden');
                             $('#volume-bar').attr('value', element.volume_percent);
-                            if (element.volume_percent < 50) {
+                            if (element.volume_percent === 0) {
+                                $('#volume-btn').attr('src', 'images/mute.png');
+                            } else if (element.volume_percent < 50) {
                                 $('#volume-btn').attr('src', 'images/low-volume.png');
                             } else {
                                 $('#volume-btn').attr('src', 'images/volume.png');
@@ -262,6 +266,31 @@ function toggleLike() {
         });
 }
 
+function toggleVolume() {
+    if (document.getElementById('volume-bar').value != 0) {
+        volume = document.getElementById('volume-bar').value;
+        setVolume(0);
+    } else {
+        setVolume(volume);
+    }
+}
+
+function setVolume(percent) {
+    $.ajax({
+        url: 'https://api.spotify.com/v1/me/player/volume?volume_percent=' + percent,
+        method: 'PUT',
+        headers: {
+            'Authorization': 'Bearer <?php echo $_SESSION['access_token']; ?>'
+        },
+        success: function(response) {
+            setTimeout(loadDevice, longTimeout);
+        },
+        error: function(xhr, status, error) {
+            console.error('Error seeking track:', error);
+        }
+    });
+}
+
 // Click event for progress bar
 document.getElementById('time-bar').addEventListener('click', function(e) {
     var progressBar = this;
@@ -293,20 +322,7 @@ document.getElementById('volume-bar').addEventListener('click', function (e) {
     var clickX = e.offsetX;
     var newValue = Math.round((clickX / width) * max);
 
-    // Seek to the new position
-    $.ajax({
-        url: 'https://api.spotify.com/v1/me/player/volume?volume_percent=' + newValue,
-        method: 'PUT',
-        headers: {
-            'Authorization': 'Bearer <?php echo $_SESSION['access_token']; ?>'
-        },
-        success: function(response) {
-            setTimeout(loadDevice, longTimeout);
-        },
-        error: function(xhr, status, error) {
-            console.error('Error seeking track:', error);
-        }
-    });
+    setVolume(newValue);
 })
 
 // Initial call to update player

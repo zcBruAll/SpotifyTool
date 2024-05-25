@@ -11,6 +11,10 @@ body {
     line-height: 1.6;
 }
 
+a:hover {
+    text-decoration: underline !important;
+}
+
 .tile {
     margin: 20px;
 }
