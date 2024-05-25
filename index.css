@@ -1,0 +1,165 @@
+/* styles.css */
+
+/* Reset some basic styles */
+body, h1, h2, p, a, ul, li {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Player section */
+#player {
+    background: white;
+    padding: 20px;
+    margin-top: 20px;
+    margin-left: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 250px;
+}
+
+#player h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+#track-name {
+    display: block;
+    font-size: 1.2em;
+    color: #1DB954;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#track-pic {
+    border-radius: 5px;
+    height: 150px;
+    width: 150px;
+}
+
+#artists {
+    list-style: none;
+}
+
+.artist_li {
+    display: inline;
+}
+
+.artist_li a {
+    color: #1DB954;
+    text-decoration: none;
+}
+
+.artist_li span {
+    color: #1DB954;
+}
+
+.btn {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+
+.play-btn:not(:last-child) {
+    margin-right: 10px;
+}
+
+.hidden {
+    display: none;
+    visibility: hidden;
+}
+
+#time-container {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#player-btn {
+    align-items: center;
+    display: flex;
+}
+
+#time, #duration {
+    display: inline;
+    font-size: 1em;
+    color: #666;
+}
+
+#time-bar {
+    width: 100%;
+    height: 10px;
+}
+
+progress::-webkit-progress-bar {
+    background-color: #e0e0e0;
+    border-radius: 5px;
+}
+
+progress::-webkit-progress-value {
+    background-color: #1DB954;
+    border-radius: 5px;
+}
+
+progress {
+    background-color: #1DB954;
+    border-radius: 5px;
+}
+
+/* User section */
+#user {
+    background: white;
+    padding: 20px;
+    margin-top: 20px;
+    margin-left: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    text-align: center;
+    width: 250px;
+}
+
+#user h1 {
+    font-size: 2em;
+    color: #4CAF50;
+}
+
+#user img {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+}
+
+#user p {
+    font-size: 1.1em;
+    color: #666;
+}
+
+#track-addon {
+    margin-top: 10px;
+}
+
+#track-addon, #volume {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#volume-bar {
+    width: 100px;
+    height: 10px;
+}
+
+#volume-btn {
+    margin-right: 10px;
+}
