@@ -1,5 +1,7 @@
 <!-- player.php -->
-<div id="player">
+<link rel="stylesheet" href="css/global.css">
+<link rel="stylesheet" href="css/tiles/player.css">
+<div id="player" class="tile">
     <h2>Currently Playing</h2>
     <img id="track-pic" alt="Track picture">
     <a id="track-name" target="_blank"></a>

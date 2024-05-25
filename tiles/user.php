@@ -1,5 +1,8 @@
 <!-- player.php -->
-<div id="user">
+<link rel="stylesheet" href="css/global.css">
+<link rel="stylesheet" href="css/tiles/user.css">
+
+<div id="user" class="tile">
     <h1 id="display-name"></h1>
     <img id="profile-pic" alt="Profile picture">
     <p id="email"></p>

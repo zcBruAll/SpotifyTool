@@ -15,13 +15,14 @@ if (!isset($_SESSION['access_token'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Spotify Tool</title>
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
 
 <!-- Include player.php -->
-<?php include 'user.php'; ?>
-<?php include 'player.php'; ?>
+<?php include 'tiles/user.php'; ?>
+<?php include 'tiles/player.php'; ?>
 
 </body>
 </html>
