@@ -12,7 +12,6 @@ function updatePlaylists() {
           if (response.items) {
             $("#playlist-list").empty();
             response.items.forEach((playlist) => {
-                console.log(playlist.images);
               let listItem = `
                                     <li class="playlist-item">
                                         <img class="playlist-pic" src="${

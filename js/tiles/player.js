@@ -31,6 +31,7 @@ function updatePlayer() {
             },
             success: function(response) {
                 if (response) {
+                    $('#player').removeClass('hidden');
                     contextUri = response?.context.uri;
                     currentTrackId = response?.item.id;
 
