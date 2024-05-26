@@ -1,7 +1,7 @@
 <?php
 function refreshAccessToken($refreshToken) {
-    $client_id = 'your_spotify_client_id';
-    $client_secret = 'your_spotify_client_secret';
+    $client_id = '858d35f633844f64a1acc72d17c9d63c';
+    $client_secret = '154e0018249145aeb99d86a5df80a281';
 
     $url = 'https://accounts.spotify.com/api/token';
     $data = [

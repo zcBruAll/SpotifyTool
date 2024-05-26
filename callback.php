@@ -38,7 +38,6 @@ if (isset($_GET['code'])) {
     $_SESSION['refresh_token'] = $body['refresh_token'];
     $_SESSION['token_expires'] = time() + $body['expires_in'];
 
-    // Redirect to your profile page or wherever you want
     header('Location: index.php');
     exit();
 } else {
