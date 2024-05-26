@@ -11,6 +11,7 @@ if (!isset($_SESSION['access_token'])) {
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,12 +20,18 @@ if (!isset($_SESSION['access_token'])) {
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/index.css">
 </head>
+
 <body>
-
-<!-- Include player.php -->
-<?php include 'tiles/user.php'; ?>
-<?php include 'tiles/player.php'; ?>
-<?php include 'tiles/upcoming.php'; ?>
-
+    <div class="container">
+        <div>
+            <?php include 'tiles/user.php'; ?>
+            <?php include 'tiles/player.php'; ?>
+            <?php include 'tiles/upcoming.php'; ?>
+        </div>
+        <div>
+            <?php include 'tiles/playlists.php'; ?>
+        </div>
+    </div>
 </body>
+
 </html>

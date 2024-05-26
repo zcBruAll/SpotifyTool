@@ -9,7 +9,15 @@
 
 #upcoming-tracks {
     list-style: none;
-    padding: 0;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.track-name, .artists {
+    max-width: 125px;
+    text-wrap: nowrap;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
 }
 
 .track-item {
@@ -49,12 +57,10 @@
     padding: 0;
     margin: 0;
     display: flex;
-    flex-wrap: wrap;
 }
 
 .artist_li {
     display: inline;
-    margin-right: 5px;
 }
 
 .artist_li a {
@@ -74,4 +80,10 @@
     margin-top: 10px;
     display: flex;
     justify-content: space-evenly;
+}
+
+@media (max-width: 760px) {
+    .track-name, .artists {
+        max-width: 220px;
+    }
 }
