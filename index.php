@@ -31,6 +31,9 @@ if (!isset($_SESSION['access_token'])) {
         <div>
             <?php include 'tiles/playlists.php'; ?>
         </div>
+        <div>
+            <?php include 'tiles/playlist_comparison.php'; ?>
+        </div>
     </div>
 </body>
 

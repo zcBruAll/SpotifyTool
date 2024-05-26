@@ -1,4 +1,3 @@
-
 <link rel="stylesheet" href="css/global.css">
 <link rel="stylesheet" href="css/tiles/playlists.css">
 <div id="playlists" class="tile">
