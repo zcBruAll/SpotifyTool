@@ -29,6 +29,14 @@
 
 #compare {
     padding: 5px;
+    cursor: pointer;
+}
+
+.disabled {
+    pointer-events: none;
+    background-color: rgb(231, 231, 231);
+    border-color: lightgray;
+    color: gray;
 }
 
 #buttons {
@@ -83,8 +91,74 @@
     text-overflow: ellipsis;
 }
 
+.tracks-list {
+    list-style: none;
+    max-height: 350px;
+    overflow-y: auto;
+}
+
+.track-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid grey;
+    border-radius: 5px;
+}
+
+.track-item:not(:last-child) {
+    margin-bottom: 5px;
+}
+
+.track-pic {
+    width: 64px;
+    height: 64px;
+    border-radius: 4px;
+    margin-right: 20px;
+}
+
+.track-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.track-name {
+    font-size: 1em;
+    font-weight: bold;
+    text-align: left;
+    text-decoration: none;
+    color: #1DB954;
+}
+
+.artists {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+.artist_li {
+    display: inline;
+}
+
+.artist_li a {
+    color: #1DB954;
+    text-decoration: none;
+}
+
+.artist_li a:hover {
+    text-decoration: underline;
+}
+
+.artist_li span {
+    color: #1DB954;
+}
+
 @media (max-width: 760px) {
     .playlist-name {
+        max-width: 220px;
+    }
+
+    .track-name, .artists {
         max-width: 220px;
     }
 }

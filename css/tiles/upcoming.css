@@ -76,12 +76,6 @@
     color: #1DB954;
 }
 
-#arrows {
-    margin-top: 10px;
-    display: flex;
-    justify-content: space-evenly;
-}
-
 @media (max-width: 760px) {
     .track-name, .artists {
         max-width: 220px;

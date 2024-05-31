@@ -13,9 +13,14 @@
             <img src="images/refresh.png" alt="Refresh" class="btn">
             <p>Refresh</p>
         </div>
-        <div id="compare" class="button">
+        <div id="compare" class="button" onclick="comparePlaylists()">
             <p>Compare</p>
         </div>
+    </div>
+
+    <div id="result" class="hidden">
+        <h3>Differences</h3>
+        <ul id="differences" class="tracks-list"></ul>
     </div>
 </div>
 
