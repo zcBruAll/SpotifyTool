@@ -1,8 +1,8 @@
 <?php
 session_start();
 
-$client_id = '858d35f633844f64a1acc72d17c9d63c';
-$client_secret = '154e0018249145aeb99d86a5df80a281';
+$client_id = 'client_id';
+$client_secret = 'client_secret';
 $redirect_uri = 'https://project.zeacold.com/zcBruAll/SpotifyTool/callback.php';
 
 if (isset($_GET['code'])) {
